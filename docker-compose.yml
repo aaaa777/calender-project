@@ -1,0 +1,58 @@
+version: "3.5"
+
+services:
+  db:
+    image: postgres
+    hostname: database
+    container_name: database-server
+    networks:
+      - backend
+    restart: always
+    volumes:
+      - "postgres-db:/var/lib/postgresql/data"
+    environment:
+      TZ: "Asia/Tokyo"
+      POSTGRES_PASSWORD: "p0579r35qlpw"
+
+  api:
+    build: ./api
+    hostname: api
+    container_name: api-server
+    networks:
+      - frontend
+      - backend
+    # ノンキャッシュで叩く用
+    ports:
+      - "80:80"
+    #  - "10443:443"
+    environment:
+      TZ: "Asia/Tokyo"
+
+    depends_on:
+      - db
+
+  # nginx
+  #web:
+  #  build: ./web
+  #  hostname: web
+  #  container_name: web-server
+  #  networks:
+  #    - api-internal
+  #  ports:
+  #    - "80:80"
+  #    - "443:443"
+  #  depends_on:
+  #    - api
+
+networks:
+  frontend:
+    name: api-internal
+
+  backend:
+    name: database-internal
+    driver: bridge
+
+volumes:
+  postgres-db:
+    driver: local
+    
