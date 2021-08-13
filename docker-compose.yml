@@ -1,58 +1,86 @@
 version: "3.5"
 
 services:
+  # データベースサーバコンテナ
+  # MySQL知らないのでPostgresqlを使っている
+  # apiで対応出来るならRDBMはなんでもいい
   db:
     image: postgres
+
+    # Docker network上のホスト名
     hostname: database
+
+    # 作成コンテナ名
     container_name: database-server
+
+    # バックエンド用Docker network(internal)にのみ繋ぐ
     networks:
       - backend
+
+    # 自動再起動
     restart: always
+
+    # 名前付きVolumeにDBデータを割り当てて永続化させる
     volumes:
       - "postgres-db:/var/lib/postgresql/data"
+
+    # 環境変数設定
+    # デフォルトパスワードはpostgresqlpwのleetspeak
     environment:
       TZ: "Asia/Tokyo"
       POSTGRES_PASSWORD: "p0579r35qlpw"
 
+
+  # apiサーバ用コンテナ
   api:
+
+    # ./api下のDockerfileからビルド
     build: ./api
+
+    # Docker network上のホスト名
     hostname: api
+
+    # 作成コンテナ名
     container_name: api-server
+
+    # 内部ネットワークbackendとインターネットありのfrontendに接続
     networks:
       - frontend
       - backend
-    # ノンキャッシュで叩く用
+
+    # host側127.0.0.1:80にコンテナ80ポートをバインド
     ports:
       - "80:80"
-    #  - "10443:443"
+
+    # 環境変数
     environment:
       TZ: "Asia/Tokyo"
 
     depends_on:
       - db
 
-  # nginx
-  #web:
-  #  build: ./web
-  #  hostname: web
-  #  container_name: web-server
-  #  networks:
-  #    - api-internal
-  #  ports:
-  #    - "80:80"
-  #    - "443:443"
-  #  depends_on:
-  #    - api
 
+# 利用するDocker networkの名前
 networks:
+
+  # フロントエンド側ネットワーク（インターネットアクセスあり）
   frontend:
     name: api-internal
 
+  # backend側内部ネットワーク
+  # overlayではなくbridgeの外部アクセスを切ったもの
   backend:
     name: database-internal
     driver: bridge
 
+
+# 永続化ディスクの名前
 volumes:
+
+  # postgresql用DBファイル
   postgres-db:
+
+    # local driverはホスト側Volumeディレクトリをテキトーに使ってくれる
+    # たぶん/var/lib/docker/volumes/docker-compose-$(VOLUME_NAME)/_data下
     driver: local
     
