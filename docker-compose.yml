@@ -5,7 +5,11 @@ services:
   # MySQL知らないのでPostgresqlを使っている
   # apiで対応出来るならRDBMはなんでもいい
   db:
-    image: postgres
+    # net-tools等入れる必要がなければ公式イメージのままで大丈夫
+    #image: postgres
+
+    # 環境変数ではカバーできない部分を設定する場合コメントアウト
+    build: ./db
 
     # Docker network上のホスト名
     hostname: database
