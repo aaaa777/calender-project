@@ -15,7 +15,7 @@ services:
 
     # バックエンド用Docker network(internal)にのみ繋ぐ
     networks:
-      - backend
+      - database-internal
 
     # 自動再起動
     restart: always
@@ -46,7 +46,7 @@ services:
     # 内部ネットワークbackendとインターネットありのfrontendに接続
     networks:
       - frontend
-      - backend
+      - database-internal
 
     # host側127.0.0.1:80にコンテナ80ポートをバインド
     ports:
@@ -65,13 +65,12 @@ networks:
 
   # フロントエンド側ネットワーク（インターネットアクセスあり）
   frontend:
-    name: api-internal
+    external: true
 
   # backend側内部ネットワーク
   # overlayではなくbridgeの外部アクセスを切ったもの
-  backend:
-    name: database-internal
-    driver: bridge
+  database-internal:
+    external: true
 
 
 # 永続化ディスクの名前
