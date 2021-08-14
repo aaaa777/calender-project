@@ -65,12 +65,13 @@ networks:
 
   # フロントエンド側ネットワーク（インターネットアクセスあり）
   frontend:
-    external: true
+    name: frontend
+  #  internal: true
 
   # backend側内部ネットワーク
   # overlayではなくbridgeの外部アクセスを切ったもの
   database-internal:
-    external: true
+    internal: true
 
 
 # 永続化ディスクの名前
