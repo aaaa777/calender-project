@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-16T07:26:45.642Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.134 Safari/537.36" etag="WLjAcjToUChEkuL5ti72" version="14.9.6" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-08-16T07:35:20.161Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.134 Safari/537.36" etag="hv3bqoq4dC53zQI5N0aI" version="14.9.6" type="github" pages="3">
   <diagram name="論理ER（改善案#1）" id="CuEPwNau0Ckx92s-aYj9">
     <mxGraphModel dx="1077" dy="719" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -262,7 +262,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="61Pn8xsdr3904dRH_znx-92" value="" style="endArrow=ERoneToMany;startArrow=ERmandOne;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startFill=0;endFill=0;edgeStyle=orthogonalEdgeStyle;" parent="61Pn8xsdr3904dRH_znx-1" source="61Pn8xsdr3904dRH_znx-39" target="61Pn8xsdr3904dRH_znx-56" edge="1">
+        <mxCell id="61Pn8xsdr3904dRH_znx-92" value="" style="endArrow=ERoneToMany;startArrow=ERmandOne;html=1;startFill=0;endFill=0;edgeStyle=orthogonalEdgeStyle;" parent="61Pn8xsdr3904dRH_znx-1" source="61Pn8xsdr3904dRH_znx-39" target="j9uyDbg8sXxc9PfK5RRD-10" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="710" y="721" as="sourcePoint" />
             <mxPoint x="830" y="920" as="targetPoint" />
@@ -408,6 +408,12 @@
         </mxCell>
         <mxCell id="j9uyDbg8sXxc9PfK5RRD-9" value="予定ID&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;char(64)" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="j9uyDbg8sXxc9PfK5RRD-7">
           <mxGeometry y="78" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="j9uyDbg8sXxc9PfK5RRD-12" value="" style="endArrow=ERmandOne;startArrow=ERmandOne;html=1;edgeStyle=orthogonalEdgeStyle;startFill=0;endFill=0;" edge="1" parent="61Pn8xsdr3904dRH_znx-1" source="j9uyDbg8sXxc9PfK5RRD-9" target="61Pn8xsdr3904dRH_znx-55">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="890" y="700" as="sourcePoint" />
+            <mxPoint x="940" y="650" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
