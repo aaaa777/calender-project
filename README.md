@@ -34,6 +34,7 @@ snowflakeのパクリ規格
 |0| 2021/01/01 00:00:00 +--------+------------+   number |   type  |
 | |             (41bit) |id(3bit)|worker(5bit)|  (10bit) |  (4bit) |
 +-+---------------------+--------+------------+----------+---------+
+(total 64bit)
 ```
 timestampは2021年1月1日00:00:00起算
 dc_idはdatacenter_id、つまり物理的な実行地点やワーカー毎に割り振りをする
@@ -43,11 +44,11 @@ dc_idはdatacenter_id、つまり物理的な実行地点やワーカー毎に�
 ちなみにsequenceは内部的にbigintになっているらしいので64bitを超える数値範囲は返せないようだ
 
 ```
-create sequence nallowflake_seq
-maxvalue 1023
-minvalue 0
-cycle
-;
+create sequence nallowflake_seq(
+  maxvalue 1023
+  minvalue 0
+  cycle
+);
 ```
 
 これを利用したnallowflake(integer)関数を作る
