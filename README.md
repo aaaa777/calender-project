@@ -29,11 +29,12 @@
 ## nallowflake
 snowflakeのパクリ規格
 ```
-+-+---------------------+---------------------+----------+---------+
-| |    timestamp starts |datacenter info(8bit)| sequence | content |
-|0| 2021/01/01 00:00:00 +--------+------------+   number |   type  |
-| |             (41bit) |id(3bit)|worker(5bit)|  (10bit) |  (4bit) |
-+-+---------------------+--------+------------+----------+---------+
+nallowflake identifier
++-+---------------------+-------------------------+----------+---------+
+| |    timestamp starts |  datacenter info(8bit)  | sequence | content |
+|0| 2021/01/01 00:00:00 +----------+--------------+   number |   type  |
+| |             (41bit) | id(3bit) | worker(5bit) |  (10bit) |  (4bit) |
++-+---------------------+----------+--------------+----------+---------+
 (total 64bit)
 ```
 timestampは2021年1月1日00:00:00起算
