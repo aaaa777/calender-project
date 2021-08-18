@@ -26,10 +26,10 @@
 ```
 - ファイルごとの変更点説明や4行目以降自体を省略しても良い
 
-## nallowflake
+## narrowflake
 snowflakeのパクリ規格
 ```
-nallowflake identifier
+narrowflake identifier
 +-+---------------------+-------------------------+----------+---------+
 | |    timestamp starts |  datacenter info(8bit)  | sequence | content |
 |0| 2021/01/01 00:00:00 +----------+--------------+   number |   type  |
@@ -45,21 +45,21 @@ dc_idはdatacenter_id、つまり物理的な実行地点やワーカー毎に�
 ちなみにsequenceは内部的にbigintになっているらしいので64bitを超える数値範囲は返せないようだ
 
 ```
-create sequence nallowflake_seq(
+create sequence narrowflake_seq(
   maxvalue 1023
   minvalue 0
   cycle
 );
 ```
 
-これを利用したnallowflake(integer)関数を作る
+これを利用したnarrowflake(integer)関数を作る
 ```
-drop function if exists nallowflake_with_type(bit);
-create or replace function nallowflake_with_type(content_type bit)
+drop function if exists narrowflake_with_type(bit);
+create or replace function narrowflake_with_type(content_type bit)
 returns bigint as $$
   begin
     --     timestamp                                                                                      || datacenter  || sequence                            || content_type
-    return ((extract(epoch from date_trunc('second', current_timestamp)) - 1609426800.0)::bigint::bit(41) || b'01111111' || nextval('nallowflake_seq')::bit(10) || content_type)::bit(63)::bigint;
+    return ((extract(epoch from date_trunc('second', current_timestamp)) - 1609426800.0)::bigint::bit(41) || b'01111111' || nextval('narrowflake_seq')::bit(10) || content_type)::bit(63)::bigint;
   end;
 $$ language plpgsql;
 ```
