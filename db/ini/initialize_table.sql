@@ -1,8 +1,9 @@
 
 drop table if exists AccountList;
 create table AccountList(
-  id bigint primary key,
-  account_id varchar(30) primary key,
+  -- content_id: 0001はuser
+  account_id bigint primary key default narrowflake('narrowflake_user', b'0001'),
+  account_name_id varchar(30) not null,
   account_name varchar(30) not null,
   account_mail varchar(255) not null,
   /*勝手にタイムスタンプ付けてます*/
@@ -29,7 +30,7 @@ create table OrganizationList(
   organization_id bigint primary key,
   organization_name varchar(30) not null,
   organization_address varchar(150),
-  author_account_id bigint not null,
+  organization_author_account_id bigint not null,
   organization_token char(30)
 );
 
