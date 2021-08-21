@@ -36,3 +36,9 @@ as $$
 
   commit;
 $$;
+
+create procedure authorize_user(account_id bigint, account_password text, inout _access_token)
+language sql
+as $$
+  
+$$;
