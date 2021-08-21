@@ -6,7 +6,7 @@ create table AccountList(
   account_name varchar(30) not null,
   account_mail varchar(255) not null,
   /*勝手にタイムスタンプ付けてます*/
-  creation_timestamp timestamp without time zone default CURRENT_TIMESTAMP
+  -- creation_timestamp timestamp without time zone default CURRENT_TIMESTAMP
 );
 
 drop table if exists AccessToken;
