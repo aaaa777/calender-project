@@ -1,7 +1,7 @@
 
 drop table if exists AccountList;
 create table AccountList(
-  id serial unique,
+  id bigint primary key,
   account_id varchar(30) primary key,
   account_name varchar(30) not null,
   account_mail varchar(255) not null,
@@ -11,7 +11,7 @@ create table AccountList(
 
 drop table if exists AccessToken;
 create table AccessToken(
-  account_id varchar(30) primary key,
+  account_id bigint primary key,
   access_token char(64) not null,
   /*勝手仕様 セッション有効期限*/
   expires_for timestamp
@@ -19,39 +19,39 @@ create table AccessToken(
 
 drop table if exists AccountPassword;
 create table AccountPassword(
-  account_id varchar(30) primary key,
+  account_id bigint primary key,
   salt varchar(64) not null,
   password_hash varchar(64) not null
 );
 
 drop table if exists OrganizationList;
 create table OrganizationList(
-  organization_id varchar(30) primary key not null,
+  organization_id bigint primary key,
   organization_name varchar(30) not null,
   organization_address varchar(150),
-  author_account_id varchar(30) not null,
+  author_account_id bigint not null,
   organization_token char(30)
 );
 
 drop table if exists OrganizationInvitation;
 create table OrganizationInvitation(
   invite_token char(20) primary key,
-  organization_id varchar(30) not null,
+  organization_id bigint not null,
   /*下のテーブルとの型指定揺れあり*/
-  group_id varchar(30),
-  account_id varchar(30) not null
+  group_id bigint,
+  account_id bigint not null
 )
 
 drop table if exists MemberList;
 create table MemberList(
-  member_id varchar(30) primary key,
-  account_id varchar(30) not null,
-  organization_id char(32) not null,
+  member_id bigint primary key,
+  account_id bigint not null,
+  organization_id bigint not null,
   -- group_id char(32) not null,
   member_name varchar(30) not null,
   phone_number varchar(15),
   mail varchar(255),
-  accepting_flag bool not null
+  accepting_flag boolean not null
 );
 
 drop table if exists GroupList;
@@ -59,9 +59,9 @@ create table GroupList(
   group_id bigint unique,
   group_name varchar(30),
   organization_id varchar(30),
-  group_author_member_id bigint,
+  group_author_member_id bigint not null,
   group_phone_number bigint,
-  gtoup_flag boolean-- ,
+  group_flag boolean-- ,
   -- group_token char(30)
 );
 
