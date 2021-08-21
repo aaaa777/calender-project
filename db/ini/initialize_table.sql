@@ -59,7 +59,7 @@ drop table if exists GroupList;
 create table GroupList(
   group_id bigint unique,
   group_name varchar(30),
-  organization_id varchar(30),
+  organization_id bigint,
   group_author_member_id bigint not null,
   group_phone_number bigint,
   group_flag boolean-- ,
@@ -69,7 +69,7 @@ create table GroupList(
 drop table if exists PlanList;
 create table PlanList(
   plan_id bigint primary key,
-  plan_organization bigint not null,
+  plan_organization_id bigint not null,
   plan_title varchar(30) not null,
   plan_description varchar(200),
   plan_group_id bigint,
