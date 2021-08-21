@@ -19,11 +19,13 @@ as $$
   commit;
 $$;
 
-create procedure create_group()
+create procedure create_group(v_member_id bigint, v_group_name varchar(30), v_group_phone_number bigint, inout _group_id bigint)
 language sql
 as $$
   begin;
-
+    insert into GroupList(group_name, organization_id, group_author_member_id, group_phone_number)
+    values(v_group_name, '' , v_member_id, v_group_phone_number)
+    returning group_id into _group_id;
   commit;
 $$;
 
