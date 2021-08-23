@@ -1,13 +1,28 @@
 
-create procedure create_account(v_account_name_id varchar(30), v_account_name varchar(30), v_account_mail varchar(255), inout _account_id bigint default 0)
+create procedure register_access_token(v_account_name_id bigint, v_account_password varchar(30), inout _account_id varchar(30))
 language sql
 as $$
-  begin;
+  begin
+    /*--- account_name_idの存在確認 ---*/
+    if (select true from AccountList where account_name_id = v_account_name_id) then
+      rollback;
+    end if;
+
+
+    insert into AccountList(account_name_id, account_name, account_mail) values(v_account_name_id, v_account_name, v_account_mail) returning account_id into _account_id;
+
+  end;
+$$;
+
+drop procedure create_account(varchar, varchar, varchar, bigint);
+create procedure create_account(v_account_name_id varchar(30), v_account_name varchar(30), v_account_mail varchar(255), inout _account_id bigint default 0)
+as $$
+  begin
     insert into AccountList(account_name_id, account_name, account_mail)
       values(v_account_name_id, v_account_name, v_account_mail)
       returning account_id into _account_id;
-  commit;
-$$;
+  end;
+$$ language plpgsql;
 
 create procedure create_organization(v_access_token varchar(30), v_organization_name varchar(30), v_organization_address varchar(30), v_organization_author_account_id varchar(30), inout _organization_id bigint default 0)
 language sql
