@@ -46,14 +46,25 @@ $$ language plpgsql;
 
 
 drop function if exists account_info(varchar(30));
-create function account_info(name_id varchar(30))
+create function account_info(v_account_name_id varchar(30))
 returns table(account_id bigint, account_name_id varchar(30), account_name varchar(30), account_mail varchar(30)) as $$
   begin
     return query
-      select account_id, account_name_id, account_name, account_mail
-      from AccountList
-      /* account_idがunique必須*/
-      where account_id = name_id;
+      select alist.account_id, alist.account_name_id, alist.account_name, alist.account_mail
+      from AccountList as alist
+      /* account_name_idがunique必須*/
+      where account_name_id = v_account_name_id;
+  end;
+$$ language plpgsql;
+
+drop function if exists account_info(bigint);
+create function account_info(v_account_id bigint)
+returns table(account_id bigint, account_name_id varchar(30), account_name varchar(30), account_mail varchar(30)) as $$
+  begin
+    return query
+      select alist.account_id, alist.account_name_id, alist.account_name, alist.account_mail
+      from AccountList as alist
+      where alist.account_id = v_account_id;
   end;
 $$ language plpgsql;
 
