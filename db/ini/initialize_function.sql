@@ -105,8 +105,7 @@ drop function if exists is_valid_password(bigint, text);
 create function is_valid_password(v_account_id bigint, v_raw_password text)
 returns boolean as $$
   begin
-    return query
-      select crypt(v_raw_password, salt) = password_hash from AccountPassword where account_id = v_account_id;
+    return (select crypt(v_raw_password, salt) = password_hash from AccountPassword where account_id = v_account_id);
   end;
 $$ language plpgsql;
 
