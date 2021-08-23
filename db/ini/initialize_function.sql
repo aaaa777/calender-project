@@ -26,12 +26,20 @@ returns bigint as $$
         -- 起算時の差分秒数を計算する
         (extract(epoch from date_trunc('second', current_timestamp)) - 1609426800.0)::bigint::bit(41) ||
         -- データセンターID
-        b'00111111' ||
+        dc_id() ||
         -- シーケンス取得
         nextval(seq_table)::bit(10) ||
         -- IDの種別
         content_type::bit(4)
       )::bit(63)::bigint;
+  end;
+$$ language plpgsql;
+
+drop function if exists dc_id();
+create function dc_id()
+returns bit as $$
+  begin
+    return b'00111111'
   end;
 $$ language plpgsql;
 
