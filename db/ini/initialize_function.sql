@@ -72,6 +72,9 @@ returns text as $$
   end;
 $$ language plpgsql;
 
+
+/*--- account_idのパスワードを設定- --*/
+
 drop function if exists add_password(bigint, text);
 create function add_password(v_account_id bigint, v_raw_password text)
 returns void as $$
@@ -83,6 +86,9 @@ returns void as $$
   end;
 $$ language plpgsql;
 
+
+/*--- account_idのパスワードを削除- --*/
+
 drop function if exists del_password(bigint);
 create function del_password(v_account_id)
 returns void as $$
@@ -92,6 +98,9 @@ returns void as $$
   end;
 $$ language plpgsql;
 
+
+/*--- account_idのパスワードを上書き- --*/
+
 drop function if exists update_password(bigint, text);
 create function update_password(v_account_id bigint, v_raw_password text)
 returns void as $$
@@ -100,6 +109,9 @@ returns void as $$
     perform add_password(v_account_id, v_raw_password);
   end;
 $$ language plpgsql;
+
+
+/*--- account_idのパスワードをランダムな文字列に置き換え- --*/
 
 drop function if exists randomize_password(bigint);
 create function randomize_password(v_account_id bigint)
@@ -112,6 +124,9 @@ returns text as $$
   end;
 $$ language plpgsql;
 
+
+/*--- account_idのパスワードを照合- --*/
+
 drop function if exists is_valid_password(bigint, text);
 create function is_valid_password(v_account_id bigint, v_raw_password text)
 returns boolean as $$
@@ -119,6 +134,11 @@ returns boolean as $$
     return (select crypt(v_raw_password, salt) = password_hash from AccountPassword where account_id = v_account_id);
   end;
 $$ language plpgsql;
+
+
+/*---
+ utillity functions 
+---*/
 
 drop function if exists generate_random_password8();
 create function generate_random_password8()
