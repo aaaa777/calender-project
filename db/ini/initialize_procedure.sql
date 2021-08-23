@@ -9,7 +9,7 @@ as $$
   commit;
 $$;
 
-create procedure create_organization(v_organization_name varchar(30), v_organization_address varchar(30), v_organization_author_account_id varchar(30), inout _organization_id bigint default 0)
+create procedure create_organization(v_access_token varchar(30), v_organization_name varchar(30), v_organization_address varchar(30), v_organization_author_account_id varchar(30), inout _organization_id bigint default 0)
 language sql
 as $$
   begin;
