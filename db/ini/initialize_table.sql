@@ -2,27 +2,25 @@
 drop table if exists AccountList;
 create table AccountList(
   -- content_id: 0001はuser
-  account_id bigint primary key default narrowflake('narrowflake_user', b'0001'),
+  -- テスト環境なのでnarrowflake_seqシーケンスを使用
+  account_id bigint primary key default narrowflake('narrowflake_seq', b'00111111', b'0001'),
   account_name_id varchar(30) not null,
   account_name varchar(30) not null,
-  account_mail varchar(255) not null,
-  /*勝手にタイムスタンプ付けてます*/
-  -- creation_timestamp timestamp without time zone default CURRENT_TIMESTAMP
+  account_mail varchar(255) not null
 );
 
 drop table if exists AccessToken;
 create table AccessToken(
   account_id bigint primary key,
-  access_token char(64) not null,
-  /*勝手仕様 セッション有効期限*/
-  expires_for timestamp
+  access_token text not null default new_token(),
+  expires_for timestamp default current_timestamp
 );
 
 drop table if exists AccountPassword;
 create table AccountPassword(
   account_id bigint primary key,
-  salt varchar(64) not null,
-  password_hash varchar(64) not null
+  salt text not null,
+  password_hash text not null
 );
 
 drop table if exists OrganizationList;
