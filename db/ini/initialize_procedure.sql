@@ -25,7 +25,14 @@ as $$
   end;
 $$ language plpgsql;
 
-create procedure change_password(v_account_id bigint, inout _raw_password text default '')
+create procedure change_password(v_account_id bigint, v_raw_password text)
+as $$
+  begin
+    perform update_password(v_raw_password));
+  end;
+$$ language plpgsql;
+
+create procedure reset_password(v_account_id bigint, inout _raw_password text default '')
 as $$
   begin
     return (select randomize_password());
