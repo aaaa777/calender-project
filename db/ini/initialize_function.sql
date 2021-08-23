@@ -60,8 +60,26 @@ $$ language plpgsql;
 drop function if exists is_valid_token(varchar(30));
 create function is_valid_token(v_valid_token varchar(30))
 returns boolean as $$
-  select  from AccessToken where access_token = v_access_token
+  select * from AccessToken where access_token = v_access_token
 
 $$ language plpgsql;
 
+drop function if exists new_token();
+create function new_token()
+returns text as $$
+  begin
+    return;
+  end;
+$$ language plpgsql;
+
+drop function if exists add_password(text);
+create function add_password(v_account_id bigint, v_raw_password text)
+as $$
+  declare
+    new_salt text := gen_salt('bf')
+  begin
+    insert into AccountPassword(accout_id, salt, password_hash)
+      values(v_account_id, new_salt, crypt(v_raw_password, new_salt));
+  end;
+$$ language plpgsql;
 
