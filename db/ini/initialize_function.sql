@@ -90,7 +90,7 @@ $$ language plpgsql;
 /*--- account_idのパスワードを削除- --*/
 
 drop function if exists del_password(bigint);
-create function del_password(v_account_id)
+create function del_password(v_account_id bigint)
 returns void as $$
   begin
     delete from AccountPassword
@@ -119,7 +119,7 @@ returns text as $$
   declare
     new_password text := generate_random_password8();
   begin
-    perform update_password(v_account_id);
+    perform update_password(v_account_id, new_password);
     return new_password;
   end;
 $$ language plpgsql;
