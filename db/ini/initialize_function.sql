@@ -72,14 +72,24 @@ returns text as $$
   end;
 $$ language plpgsql;
 
-drop function if exists add_password(text);
+drop function if exists add_password(bigint, text);
 create function add_password(v_account_id bigint, v_raw_password text)
-as $$
+returns void as $$
   declare
-    new_salt text := gen_salt('bf')
+    new_salt text := gen_salt('bf');
   begin
-    insert into AccountPassword(accout_id, salt, password_hash)
+    insert into AccountPassword(account_id, salt, password_hash)
       values(v_account_id, new_salt, crypt(v_raw_password, new_salt));
+  end;
+$$ language plpgsql;
+
+
+drop function if exists is_valid_password(bigint, text);
+create function is_valid_password(v_account_id bigint, v_raw_password text)
+returns boolean as $$
+  begin
+    return query
+      select crypt(v_raw_password, salt) = password_hash from AccountPassword where account_id = v_account_id;
   end;
 $$ language plpgsql;
 

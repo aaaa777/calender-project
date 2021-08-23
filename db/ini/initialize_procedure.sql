@@ -1,6 +1,5 @@
 
-create procedure register_access_token(v_account_name_id bigint, v_account_password varchar(30), inout _account_id varchar(30))
-language sql
+create procedure register_access_token(v_account_id bigint, v_account_password varchar(30), inout _access_token varchar(30) default '')
 as $$
   begin
     /*--- account_name_idの存在確認 ---*/
@@ -8,19 +7,28 @@ as $$
       rollback;
     end if;
 
-
-    insert into AccountList(account_name_id, account_name, account_mail) values(v_account_name_id, v_account_name, v_account_mail) returning account_id into _account_id;
+    insert into AccessToken(account_id) values(v_account_id) returning access_token into _access_token;
 
   end;
-$$;
+$$ language plpgsql;
 
-drop procedure create_account(varchar, varchar, varchar, bigint);
-create procedure create_account(v_account_name_id varchar(30), v_account_name varchar(30), v_account_mail varchar(255), inout _account_id bigint default 0)
+drop procedure create_account(varchar, varchar, varchar, text, bigint);
+create procedure create_account(v_account_name_id varchar(30), v_account_name varchar(30), v_account_mail varchar(255), v_raw_password text, inout _account_id bigint default 0)
 as $$
+  declare
+    new_salt text = gen_salt('bf');
   begin
     insert into AccountList(account_name_id, account_name, account_mail)
       values(v_account_name_id, v_account_name, v_account_mail)
       returning account_id into _account_id;
+    select from add_password(_account_id, v_raw_password);
+  end;
+$$ language plpgsql;
+
+create procedure change_password(v_account_id bigint, inout raw_password text default '')
+as $$
+  begin
+    
   end;
 $$ language plpgsql;
 
