@@ -120,3 +120,10 @@ returns boolean as $$
   end;
 $$ language plpgsql;
 
+drop function if exists generate_random_password8();
+create function generate_random_password8()
+returns text as $$
+  begin
+    return right(gen_salt('md5'), 8);
+  end;
+$$ language plpgsql;
