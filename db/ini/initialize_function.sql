@@ -71,7 +71,7 @@ $$ language plpgsql;
 drop function if exists is_valid_token(varchar(30));
 create function is_valid_token(v_valid_token varchar(30))
 returns boolean as $$
-  select * from AccessToken where access_token = v_access_token
+  select  from AccessToken where access_token = v_access_token
 
 $$ language plpgsql;
 
@@ -79,7 +79,7 @@ drop function if exists new_token();
 create function new_token()
 returns text as $$
   begin
-    return;
+    return sha256((narrowflake('narrowflake_seq', dc_id(), b'1111')::text || gen_salt('md5'))::bytea);
   end;
 $$ language plpgsql;
 
