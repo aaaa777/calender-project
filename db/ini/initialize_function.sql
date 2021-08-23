@@ -83,6 +83,23 @@ returns void as $$
   end;
 $$ language plpgsql;
 
+drop function if exists del_password(bigint);
+create function del_password(v_account_id)
+returns void as $$
+  begin
+    delete from AccountPassword
+      where account_id = v_account_id;
+  end;
+$$ language plpgsql;
+
+drop function if exists update_password(bigint, text);
+create function update_password(v_account_id bigint, v_raw_password text)
+returns void as $$
+  begin
+    perform del_password(v_account_id);
+    perform add_password(v_account_id, v_raw_password);
+  end;
+$$ language plpgsql;
 
 drop function if exists is_valid_password(bigint, text);
 create function is_valid_password(v_account_id bigint, v_raw_password text)
