@@ -45,7 +45,7 @@ returns bit as $$
 $$ language plpgsql;
 
 
-drop function if exists account_info(name_id varchar(30));
+drop function if exists account_info(varchar(30));
 create function account_info(name_id varchar(30))
 returns table(account_id bigint, account_name_id varchar(30), account_name varchar(30), account_mail varchar(30)) as $$
   begin
@@ -55,6 +55,13 @@ returns table(account_id bigint, account_name_id varchar(30), account_name varch
       /* account_idがunique必須*/
       where account_id = name_id;
   end;
+$$ language plpgsql;
+
+drop function if exists is_valid_token(varchar(30));
+create function is_valid_token(v_valid_token varchar(30))
+returns boolean as $$
+  select  from AccessToken where access_token = v_access_token
+
 $$ language plpgsql;
 
 
