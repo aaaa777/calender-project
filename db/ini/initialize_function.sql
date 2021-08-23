@@ -101,6 +101,17 @@ returns void as $$
   end;
 $$ language plpgsql;
 
+drop function if exists randomize_password(bigint);
+create function randomize_password(v_account_id bigint)
+returns text as $$
+  declare
+    new_password text := generate_random_password8();
+  begin
+    perform update_password(v_account_id);
+    return new_password;
+  end;
+$$ language plpgsql;
+
 drop function if exists is_valid_password(bigint, text);
 create function is_valid_password(v_account_id bigint, v_raw_password text)
 returns boolean as $$
