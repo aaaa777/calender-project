@@ -35,13 +35,26 @@ returns bigint as $$
   end;
 $$ language plpgsql;
 
+
 drop function if exists dc_id();
 create function dc_id()
 returns bit as $$
   begin
-    return b'00111111'
+    return b'00111111';
   end;
 $$ language plpgsql;
 
+
+drop function if exists account_info(name_id varchar(30));
+create function account_info(name_id varchar(30))
+returns table(account_id bigint, account_name_id varchar(30), account_name varchar(30), account_mail varchar(30)) as $$
+  begin
+    return query
+      select account_id, account_name_id, account_name, account_mail
+      from AccountList
+      /* account_idがunique必須*/
+      where account_id = name_id;
+  end;
+$$ language plpgsql;
 
 
