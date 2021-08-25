@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-25T01:24:30.159Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" etag="w9D8Dl37Nsl-X1SHBS1A" version="14.9.8" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-08-25T01:27:11.712Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" etag="CSnZBJrEgaVXCseBQqCl" version="14.9.8" type="github" pages="4">
   <diagram name="論理ER（改善案#2）" id="F6c8URVKuM2NDV2CgQtW">
     <mxGraphModel dx="1557" dy="990" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -460,7 +460,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="物理ER（改善案#2）" id="CuEPwNau0Ckx92s-aYj9">
-    <mxGraphModel dx="1557" dy="990" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1276" dy="990" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
         <mxCell id="61Pn8xsdr3904dRH_znx-0" />
         <mxCell id="61Pn8xsdr3904dRH_znx-1" parent="61Pn8xsdr3904dRH_znx-0" />
@@ -482,13 +482,13 @@
         <mxCell id="61Pn8xsdr3904dRH_znx-8" value="&lt;span&gt;account_id&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;varchar(30)&lt;/span&gt;" style="text;html=1;strokeColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;fillColor=#FF99FF;" parent="61Pn8xsdr3904dRH_znx-6" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="HZxLPFtjoDrmJlZVZk29-0" value="account_name_id&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;varchar(30)" style="text;html=1;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;glass=0;sketch=0;shadow=0;rounded=0;" vertex="1" parent="61Pn8xsdr3904dRH_znx-6">
+        <mxCell id="HZxLPFtjoDrmJlZVZk29-0" value="name_id&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;varchar(30)" style="text;html=1;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;glass=0;sketch=0;shadow=0;rounded=0;" vertex="1" parent="61Pn8xsdr3904dRH_znx-6">
           <mxGeometry y="52" width="160" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="61Pn8xsdr3904dRH_znx-9" value="account_name&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;varchar(30)" style="text;html=1;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;glass=0;sketch=0;shadow=0;rounded=0;" parent="61Pn8xsdr3904dRH_znx-6" vertex="1">
+        <mxCell id="61Pn8xsdr3904dRH_znx-9" value="name&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;varchar(30)" style="text;html=1;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;glass=0;sketch=0;shadow=0;rounded=0;" parent="61Pn8xsdr3904dRH_znx-6" vertex="1">
           <mxGeometry y="84" width="160" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="61Pn8xsdr3904dRH_znx-10" value="&lt;span style=&quot;font-weight: 400&quot;&gt;account_mail&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;varchar(255)&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=1" parent="61Pn8xsdr3904dRH_znx-6" vertex="1">
+        <mxCell id="61Pn8xsdr3904dRH_znx-10" value="&lt;span style=&quot;font-weight: 400&quot;&gt;mail&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;varchar(255)&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=1" parent="61Pn8xsdr3904dRH_znx-6" vertex="1">
           <mxGeometry y="116" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="61Pn8xsdr3904dRH_znx-15" value="OrganizationList" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="61Pn8xsdr3904dRH_znx-1" vertex="1">
@@ -497,10 +497,10 @@
         <mxCell id="61Pn8xsdr3904dRH_znx-16" value="organizaton_id&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 153)&quot;&gt;&lt;font color=&quot;#999900&quot;&gt;varchar(30)&lt;/font&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#FF99FF;" parent="61Pn8xsdr3904dRH_znx-15" vertex="1">
           <mxGeometry y="26" width="180" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="61Pn8xsdr3904dRH_znx-17" value="organization_name&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;varchar(30)" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="61Pn8xsdr3904dRH_znx-15" vertex="1">
+        <mxCell id="61Pn8xsdr3904dRH_znx-17" value="name&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;varchar(30)" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="61Pn8xsdr3904dRH_znx-15" vertex="1">
           <mxGeometry y="52" width="180" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="61Pn8xsdr3904dRH_znx-18" value="organization_address&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;varchar(50)" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="61Pn8xsdr3904dRH_znx-15" vertex="1">
+        <mxCell id="61Pn8xsdr3904dRH_znx-18" value="address&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;varchar(50)" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="61Pn8xsdr3904dRH_znx-15" vertex="1">
           <mxGeometry y="78" width="180" height="26" as="geometry" />
         </mxCell>
         <mxCell id="61Pn8xsdr3904dRH_znx-19" value="&lt;font color=&quot;#999900&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 153)&quot;&gt;author_account_id&lt;/span&gt;&lt;/font&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;varchar(30)" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="61Pn8xsdr3904dRH_znx-15" vertex="1">
