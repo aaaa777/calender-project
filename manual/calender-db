@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-24T23:58:27.458Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" etag="unIGw1IFkj7kMCIwkKzk" version="14.9.8" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-08-25T00:40:36.244Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" etag="Ffs5Ue8mmT4ZuDPmOqjI" version="14.9.8" type="github" pages="3">
   <diagram name="論理ER（改善案#1）" id="CuEPwNau0Ckx92s-aYj9">
     <mxGraphModel dx="1557" dy="990" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -87,10 +87,10 @@
         <mxCell id="61Pn8xsdr3904dRH_znx-37" value="メンバーアカウント" style="swimlane;html=1;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e0e0e0;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;align=center;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" parent="61Pn8xsdr3904dRH_znx-1" vertex="1">
           <mxGeometry x="430" y="630" width="190" height="270" as="geometry" />
         </mxCell>
-        <mxCell id="61Pn8xsdr3904dRH_znx-25" value="&lt;font color=&quot;#009900&quot; style=&quot;background-color: rgb(153 , 255 , 153)&quot;&gt;アカウントID&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; varchar(32)&lt;/span&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#FF99FF;" parent="61Pn8xsdr3904dRH_znx-37" vertex="1">
+        <mxCell id="61Pn8xsdr3904dRH_znx-38" value="メンバーID&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;span style=&quot;background-color: rgb(255 , 255 , 153)&quot;&gt;&lt;font color=&quot;#999900&quot;&gt;char(32)&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#FF99FF;" parent="61Pn8xsdr3904dRH_znx-37" vertex="1">
           <mxGeometry y="26" width="190" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="61Pn8xsdr3904dRH_znx-38" value="メンバーID&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;span style=&quot;background-color: rgb(255 , 255 , 153)&quot;&gt;&lt;font color=&quot;#999900&quot;&gt;char(32)&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="61Pn8xsdr3904dRH_znx-37" vertex="1">
+        <mxCell id="61Pn8xsdr3904dRH_znx-25" value="&lt;font color=&quot;#009900&quot; style=&quot;background-color: rgb(153 , 255 , 153)&quot;&gt;アカウントID&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; varchar(32)&lt;/span&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="61Pn8xsdr3904dRH_znx-37" vertex="1">
           <mxGeometry y="52" width="190" height="26" as="geometry" />
         </mxCell>
         <mxCell id="61Pn8xsdr3904dRH_znx-39" value="会社ID&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt; var&lt;/span&gt;char(30)" style="text;html=1;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="61Pn8xsdr3904dRH_znx-37" vertex="1">
@@ -258,7 +258,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="61Pn8xsdr3904dRH_znx-88" value="" style="endArrow=ERmandOne;startArrow=ERzeroToMany;html=1;edgeStyle=orthogonalEdgeStyle;endFill=0;startFill=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="61Pn8xsdr3904dRH_znx-1" source="61Pn8xsdr3904dRH_znx-38" target="61Pn8xsdr3904dRH_znx-8" edge="1">
+        <mxCell id="61Pn8xsdr3904dRH_znx-88" value="" style="endArrow=ERmandOne;startArrow=ERzeroToMany;html=1;edgeStyle=orthogonalEdgeStyle;endFill=0;startFill=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="61Pn8xsdr3904dRH_znx-1" source="61Pn8xsdr3904dRH_znx-25" target="61Pn8xsdr3904dRH_znx-8" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="350" y="551" as="sourcePoint" />
             <mxPoint x="248" y="371" as="targetPoint" />
