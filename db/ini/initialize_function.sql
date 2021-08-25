@@ -57,9 +57,10 @@ returns table(account_id bigint, account_name_id varchar(30), account_name varch
   end;
 $$ language plpgsql;
 
+--returns table(account_id bigint, account_name_id varchar(30), account_name varchar(30), account_mail varchar(30)) as $$
 drop function if exists account_info(bigint);
 create function account_info(v_account_id bigint)
-returns table(account_id bigint, account_name_id varchar(30), account_name varchar(30), account_mail varchar(30)) as $$
+returns setof record as $$
   begin
     return query
       select alist.account_id, alist.account_name_id, alist.account_name, alist.account_mail
