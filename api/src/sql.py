@@ -2,16 +2,15 @@ import psycopg2
 
 
 class Postgres(object):
-
+  
   def __init__(self, hostname="localhost", port=5432, user="postgres", password=None, database="postgres"):
     self.__hostname = hostname
     self.__port = port
     self.__user = user
     self.__password = password
     self.__database = database
-    super().__init__(hostname, self.__port, self.__user, self.__password)
 
-  
+    
   def connect(self):
     self.__connection = psycopg2.connect("host={} port={} dbname={} user={} password={}".format(self.__hostname, self.__port, self.__database, self.__user, self.__password))
 
@@ -51,14 +50,7 @@ class SQLClient(Postgres):
     self.__user = super().__user
     self.__password = super().__password
     self.__database = super().__database
+
   
-  def __init__(hostname="localhost", port=None, user="postgres", password=None, database):
-    self.__hostname = hostname
-    self.__port = port && is_instance(port, int) ? port : 4567
-    self.__user = user
-    self.__password = password
-    self.__database = database
-    
   def connect(self):
     pass
-    
