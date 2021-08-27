@@ -27,6 +27,7 @@ services:
     # 名前付きVolumeにDBデータを割り当てて永続化させる
     volumes:
       - "postgres-db:/var/lib/postgresql/data"
+      #- ./db/ini:/docker-entrypoint-initdb.d
 
     # 環境変数設定
     # デフォルトパスワードはpostgresqlpwのleetspeak
@@ -49,6 +50,8 @@ services:
 
     # 内部ネットワークbackendとインターネットありのfrontendに接続
     networks:
+      # 外側と繋げとかないとポートフォワード出来ないらしい
+      # NAT自体がなくなるからだろうか
       - frontend
       - database-internal
 
@@ -62,6 +65,38 @@ services:
 
     depends_on:
       - db
+
+  #haproxy:
+
+    #build: ./haproxy-ssl
+
+    #hostname: haproxy
+
+    #container_name: haproxy-reverseproxy
+
+    #networks:
+    #  - frontend
+    #  - database-internal
+
+    #ports:
+      #- "80:80"
+    #  - "443:443"
+    
+    #volumes:
+
+    #  - "/etc/letsencrypt:/etc/letsencrypt"
+      #- "letsencrypt:/etc/letsencrypt"
+      #- "letsencryptvar:/var/lib/letsencrypt"
+
+  #letsencrypt:
+    
+    #image: certbot/certbot
+
+    #volumes:
+    
+      #- "letsencrypt:/etc/letsencrypt"
+      #- "letsencryptvar:/var/lib/letsencrypt"
+
 
 
 # 利用するDocker networkの名前
@@ -86,5 +121,16 @@ volumes:
 
     # local driverはホスト側Volumeディレクトリをテキトーに使ってくれる
     # たぶん/var/lib/docker/volumes/docker-compose-$(VOLUME_NAME)/_data下
+    driver: local
+
+  # lets encrypt証明書
+  letsencrypt:
+
+    driver: local
+    
+    #external: true
+
+  letsencryptvar:
+
     driver: local
     
